@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --obsidian: #0D0D12;
+    --obsidian-deep: #07070A;
+    --champagne: #C9A84C;
+    --champagne-light: #E2C875;
+    --ivory: #FAF8F5;
+    --slate-charcoal: #2A2A35;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--obsidian-deep);
+    color: var(--ivory);
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  body {
+    background-color: var(--obsidian-deep);
+    color: var(--ivory);
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #08080C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A35;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C9A84C;
+  }
+}
+
+/* Global SVG Grain Background */
+.grain-bg {
+  filter: url(#cinematic-grain);
+  background: repeat;
+  background-size: 180px 180px;
+}
+
+/* Micro-Interactions */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.03);
+}
+
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+/* Couche de fond glissant pour les transitions de couleur */
+.btn-slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.btn-magnetic:hover .btn-slide-bg {
+  transform: translateY(0);
+}
+
+/* Hover lift pour liens et éléments interactifs */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-1px);
+}
+
+/* Glassmorphism & High-contrast utilities */
+.glass-panel {
+  background: rgba(19, 19, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.glass-panel-elevated {
+  background: rgba(22, 22, 34, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(201, 168, 76, 0.08);
+}
+
+.glow-champagne {
+  box-shadow: 0 0 35px rgba(201, 168, 76, 0.28);
+}
+
+/* Typography styles */
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.025em;
+}
